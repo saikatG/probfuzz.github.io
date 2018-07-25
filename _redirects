@@ -1,2 +1,2 @@
 # Redirect default Netlify subdomain to primary domain
-http://dazzling-ride-93f46d.netlify.com/* http://probfuzz.com/:splat 301!
+https://dazzling-ride-93f46d.netlify.com/* https://probfuzz.com/:splat 301!
