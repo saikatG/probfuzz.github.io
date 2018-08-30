@@ -3,7 +3,91 @@
 </head>
 <body>
 <h1>
-ProbFuzz
+ProbFuzz : A tool for testing Probabilistic Programming Systems
 </h1>
+<div>
+  <div>
+    What is Probabilistic Programming?
+  </div>
+  <div>
+Probabilistic programming (PP) has recently emerged as a promising approach
+for helping software developers to easily implement Bayesian inference
+problems and automate efficient execution of inference tasks. These
+systems automate various parts of common inference tasks and support
+many approximate inference algorithms from machine learning and
+statistics, including deterministic variational inference and
+randomized MCMC simulation.
+
+A probabilistic programming system (PP system) typically consists of a
+language, a compiler, and inference procedures. A developer writes a
+program in a probabilistic programming language, which extends a
+standard programming language by adding con- structs for (1) random
+choice, such as sampling from common distributions, (2) conditioning
+on data, such as observation statements, and (3) probabilistic
+queries, such as obtaining a posterior distribution or an expected
+value of a program variable. Next, a PP system compiles the
+probabilistic program to an efficient inference procedure, by adapting
+well-known inference algorithms. Lastly, developers run the compiled
+program on a set of data points to compute the query result.
+
+</div>
+</div>
+
+<div>
+  <div>
+    What is ProbFuzz?
+  </div>
+  <div>
+    ProbFuzz is a novel approach and system for systematically testing
+    PP systems. The inputs to ProbFuzz are:
+    (1) a general specification of the distributions that ProbFuzz supports,
+    (2) the number of programs to generate, and
+    (3) a template of a general probabilistic programming language.
+    
+    ProbFuzz outputs a set of programs that are likely bug-revealing
+    in the PP systems. ProbFuzz has three main components:
+
+    • Generator completes holes in a template to produce (1) a
+probabilistic program in an intermediate language and (2) accompanying
+data necessary to run probabilistic inference. Template completion is
+a form of fuzzing: Generator produces many programs, with different
+concrete distributions, distribution parameter values, and data
+values. To generate programs that are more likely to identify
+non-trivial bugs, Generator incorporates domain-specific information,
+e.g., legal connections among distributions, ranges of their
+parameters, and data properties.
+    
+• Translator converts the intermediate probabilistic program to a
+specific API or language of a PP system under test, and selects
+system-supported inference algorithms. We implemented three versions
+of Translator, for Edward, Pyro, and Stan.
+    
+• Program Checker runs generated programs and determines whether
+the outputs indicate likely bugs in the PP system on which the
+programs were run. Program Checker produces a set of likely
+bug-revealing programs for developers to inspect, and supports
+checks for standard problems (like crashes or NaN errors in the
+output) and accuracy of inference results.
+  </div>
+</div>
+
+  <div>
+    <div>
+      Bug Database
+    </div>
+    <div>
+      We characterized the kinds of bugs that are common in existing
+open-source systems. To the best of our knowledge, this is the first
+systematic study of bugs in PP systems. We studied three systems:
+Edward, Pyro, and Stan.  They are written in multiple programming
+languages, are hosted on GitHub, have been adopted by both industry
+and researchers, are actively developed, and implement many language
+features and inference algorithms that are common to most PP
+systems. In total, we categorized 118 of 856 commits about bugs as
+being PP systems-related. 
+    </div>
+    
+  </div>
+  
 </body>
 </html>
