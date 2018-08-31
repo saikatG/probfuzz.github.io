@@ -3,6 +3,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <head>
+	  <link rel="shortcut icon" href="assets/images/logo.png"  type="image/png"  />
+	  <title>ProbFuzz</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/styles/styles.css">
   </head>
@@ -27,14 +29,14 @@
       <div class="row">
 	<div class="col-sm-3">	  
 	  <ul class="nav flex-column nav-pills nav-fill" >
-	    <li class="nav-item">
+	    <!--<li class="nav-item">
 	      <a class="nav-link active" href="#pp" data-toggle="tab">Probabilistic Programming</a>
-	    </li>
-	    <li class="nav-item">
+	    </li>-->
+		  <li class="nav-item">
+			  <a class="nav-link active" href="#pr" data-toggle="tab"> Overview </a>
+		  </li>
+		  <li class="nav-item">
 	      <a class="nav-link" href="#db" data-toggle="tab"> Bug Database</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="#pr" data-toggle="tab"> Probfuzz </a>
 	    </li>
 	    
 	    <li class="nav-item">
@@ -51,41 +53,14 @@
 	<div class="col-sm-9">
 	  
 	  <div class="tab-content">
-	    <div class="tab-pane fade show active" id="pp">
-	      <div class="h4 pane-header">
-		What is Probabilistic Programming?
-	      </div>
-	      <div>
-		Probabilistic programming (PP) has recently emerged as a promising approach
-		for helping software developers to easily implement Bayesian inference
-		problems and automate efficient execution of inference tasks. These
-		systems automate various parts of common inference tasks and support
-		many approximate inference algorithms from machine learning and
-		statistics, including deterministic variational inference and
-		randomized MCMC simulation.
 
-		A probabilistic programming system (PP system) typically consists of a
-		language, a compiler, and inference procedures. A developer writes a
-		program in a probabilistic programming language, which extends a
-		standard programming language by adding con- structs for (1) random
-		choice, such as sampling from common distributions, (2) conditioning
-		on data, such as observation statements, and (3) probabilistic
-		queries, such as obtaining a posterior distribution or an expected
-		value of a program variable. Next, a PP system compiles the
-		probabilistic program to an efficient inference procedure, by adapting
-		well-known inference algorithms. Lastly, developers run the compiled
-		program on a set of data points to compute the query result.
-	      </div>
-	    </div>
-
-
-	    <div  class="tab-pane fade" id="pr">
+	    <div  class="tab-pane fade show active" id="pr">
 	      <div class="h4 pane-header">
 		What is ProbFuzz?
 	      </div>
 	      <div >
 		ProbFuzz is a novel approach and system for systematically testing
-		PP systems. The inputs to ProbFuzz are:
+		Probabilistic Programming Systems. The inputs to ProbFuzz are:
 		<ol>
 		  <li> a general specification of the distributions that ProbFuzz supports,</li>
 		  <li> the number of programs to generate, and </li>
@@ -93,9 +68,9 @@
 		</ol>
 		
 		ProbFuzz outputs a set of programs that are likely bug-revealing
-		in the PP systems. ProbFuzz has three main components:
+		in the Probabilistic Programming Systems. ProbFuzz has three main components:
 		<ul>
-		<li>Generator completes holes in a template to produce (1) a
+			<li><b>Generator</b> completes holes in a template to produce (1) a
 		probabilistic program in an intermediate language and (2) accompanying
 		data necessary to run probabilistic inference. Template completion is
 		a form of fuzzing: Generator produces many programs, with different
@@ -105,12 +80,12 @@
 		e.g., legal connections among distributions, ranges of their
 		parameters, and data properties.</li>
 		
-		<li> Translator converts the intermediate probabilistic program to a
+			<li> <b>Translator</b> converts the intermediate probabilistic program to a
 		specific API or language of a PP system under test, and selects
 		system-supported inference algorithms. We implemented three versions
 		of Translator, for Edward, Pyro, and Stan.</li>
 		
-		<li> Program Checker runs generated programs and determines whether
+			<li> <b>Program Checker</b> runs generated programs and determines whether
 		the outputs indicate likely bugs in the PP system on which the
 		programs were run. Program Checker produces a set of likely
 		bug-revealing programs for developers to inspect, and supports
@@ -131,11 +106,13 @@
 		We characterized the kinds of bugs that are common in existing
 		open-source systems. To the best of our knowledge, this is the first
 		systematic study of bugs in PP systems. We studied three systems:
-		Edward, Pyro, and Stan.  They are written in multiple programming
+			  <a target="_blank" href="http://edwardlib.org/">Edward</a>,
+			  <a target="_blank" href="http://pyro.ai/">Pyro</a>, and
+			  <a target="_blank" href="http://mc-stan.org/">Stan</a>.  They are written in multiple programming
 		languages, are hosted on GitHub, have been adopted by both industry
 		and researchers, are actively developed, and implement many language
 		features and inference algorithms that are common to most PP
-		systems. In total, we categorized 118 of 856 commits about bugs as
+		systems. In total, we categorized over 118 commits about bugs as
 		being PP systems-related. 
 	      </div>
 	      	<div class="glink">

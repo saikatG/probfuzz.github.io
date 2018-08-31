@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (d244b95, 2018-08-02)"
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="/home/saikat/projects/probfuzz.github.io/assets/images/logo.png"
+   inkscape:export-xdpi="2.5715182"
+   inkscape:export-ydpi="2.5715182">
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient6343">
+      <stop
+         style="stop-color:#a60000;stop-opacity:1;"
+         offset="0"
+         id="stop6339" />
+      <stop
+         style="stop-color:#a60000;stop-opacity:0;"
+         offset="1"
+         id="stop6341" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5972"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#bd0000;stop-opacity:1;"
+         offset="0"
+         id="stop5970" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6343"
+       id="radialGradient6349"
+       cx="194.6301"
+       cy="25.205137"
+       fx="194.6301"
+       fy="25.205137"
+       r="56.317665"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.2603046,3.9355353,-2.634874,0.84378448,-8.8443409,-762.98857)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-85.714286"
+     inkscape:cy="560"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:object-paths="true"
+     inkscape:snap-global="false">
+    <sodipodi:guide
+       position="102.80952,262.31548"
+       orientation="1,0"
+       id="guide6327"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="224.51786,159.50595"
+       orientation="0,1"
+       id="guide6329"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g6424"
+       inkscape:export-xdpi="2.5715182"
+       inkscape:export-ydpi="2.5715182">
+      <rect
+         transform="rotate(45.271906)"
+         style="opacity:1;fill:url(#radialGradient6349);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         ry="1.5118848"
+         y="-32.064903"
+         x="113.71883"
+         height="112.63533"
+         width="112.63533"
+         id="rect3715" />
+      <text
+         id="text6306"
+         y="174.25505"
+         x="102.51208"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:105.83333588px;line-height:1.25;font-family:'Droid Serif';-inkscape-font-specification:'Droid Serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.39996198"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:105.83333588px;font-family:'Droid Serif';-inkscape-font-specification:'Droid Serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:0.39996198"
+           y="174.25505"
+           x="102.51208"
+           id="tspan6304"
+           sodipodi:role="line">P</tspan></text>
+    </g>
+  </g>
+</svg>
