@@ -10,7 +10,7 @@
     <div class="container-fullwidth mb-3 header">
       <div class="row">
 	<div class="col-lg h1 text-center">
-	  ProbFuzz
+	  <b>ProbFuzz</b>
 	</div>
       </div>
       <div class="row">
@@ -28,14 +28,15 @@
 	<div class="col-sm-3">	  
 	  <ul class="nav flex-column nav-pills nav-fill" >
 	    <li class="nav-item">
-	      <a class="nav-link active" href="#pp" data-toggle="tab"> Introduction </a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="#pr" data-toggle="tab"> Probfuzz </a>
+	      <a class="nav-link active" href="#pp" data-toggle="tab">Probabilistic Programming</a>
 	    </li>
 	    <li class="nav-item">
 	      <a class="nav-link" href="#db" data-toggle="tab"> Bug Database</a>
 	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="#pr" data-toggle="tab"> Probfuzz </a>
+	    </li>
+	    
 	    <li class="nav-item">
 	      <a class="nav-link" href="#pubs" data-toggle="tab">Publications</a>
 	    </li>
@@ -85,14 +86,16 @@
 	      <div >
 		ProbFuzz is a novel approach and system for systematically testing
 		PP systems. The inputs to ProbFuzz are:
-		(1) a general specification of the distributions that ProbFuzz supports,
-		(2) the number of programs to generate, and
-		(3) a template of a general probabilistic programming language.
+		<ol>
+		  <li> a general specification of the distributions that ProbFuzz supports,</li>
+		  <li> the number of programs to generate, and </li>
+		  <li> a template of a general probabilistic programming language.</li>
+		</ol>
 		
 		ProbFuzz outputs a set of programs that are likely bug-revealing
 		in the PP systems. ProbFuzz has three main components:
-
-		• Generator completes holes in a template to produce (1) a
+		<ul>
+		<li>Generator completes holes in a template to produce (1) a
 		probabilistic program in an intermediate language and (2) accompanying
 		data necessary to run probabilistic inference. Template completion is
 		a form of fuzzing: Generator produces many programs, with different
@@ -100,19 +103,23 @@
 		values. To generate programs that are more likely to identify
 		non-trivial bugs, Generator incorporates domain-specific information,
 		e.g., legal connections among distributions, ranges of their
-		parameters, and data properties.
+		parameters, and data properties.</li>
 		
-		• Translator converts the intermediate probabilistic program to a
+		<li> Translator converts the intermediate probabilistic program to a
 		specific API or language of a PP system under test, and selects
 		system-supported inference algorithms. We implemented three versions
-		of Translator, for Edward, Pyro, and Stan.
+		of Translator, for Edward, Pyro, and Stan.</li>
 		
-		• Program Checker runs generated programs and determines whether
+		<li> Program Checker runs generated programs and determines whether
 		the outputs indicate likely bugs in the PP system on which the
 		programs were run. Program Checker produces a set of likely
 		bug-revealing programs for developers to inspect, and supports
 		checks for standard problems (like crashes or NaN errors in the
-		output) and accuracy of inference results.
+		  output) and accuracy of inference results.</li>
+		</ul>
+		<div class="glink">
+		  <a target="_blank" class="btn btn-primary" href="https://github.com/uiuc-arc/fse_artifact/tree/master/code/probfuzz" role="button">View on Github</a>
+		  </div>
 	      </div>
 	    </div>
 
@@ -130,7 +137,10 @@
 		features and inference algorithms that are common to most PP
 		systems. In total, we categorized 118 of 856 commits about bugs as
 		being PP systems-related. 
-	      </div>	
+	      </div>
+	      	<div class="glink">
+		  <a target="_blank" class="btn btn-primary" href="https://github.com/uiuc-arc/fse_artifact/tree/master/database" role="button">View on Github</a>
+		  </div>
 	    </div>
 
 	    <div  class="tab-pane fade" id="pubs">
