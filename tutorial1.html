@@ -41,7 +41,7 @@
     </div>
     <div class="row">
         <div class="col-lg">
-            <pre>cd $PROBFUZZ_DIRECTORY; sudo ./install.sh</pre>
+            <pre>cd $INSTALL_DIRECTORY; sudo ./install.sh</pre>
         </div>
     </div>
     <div class="row">
@@ -68,27 +68,86 @@
     </div>
     <div class="row">
         <div class="col-lg">
-            ProbFuzz will generate and run <code> #programs </code> programs in all 3 Probabilistic Programming Languages (Edward, Pyro and Stan) by default. The structure of the output directory is as follows:
+            ProbFuzz will generate and run <code>#programs</code>  programs
+            in all 3 Probabilistic Programming Languages (Edward, Pyro and
+            Stan). By default the linear regression template is used for
+            program generation. The template can be changed in <code>config.json</code>
+            using  <code>"current_template"</code> field and
+            picking one from <code>"templates"</code> field.
+            The
+                structure of the output
+            directory is as
+            follows:
             <pre>
-                	.
-	├── output					# Contains all the program codes and outputs
-	    ├── progsXXXX					# output for a single run of probfuzz
-	        ├── prob_rand_N					# Nth program details
-	            ├── model.stan					# Stan model code
-	            ├── driver.py					# python code to run stan
-	            ├── data.json					# Data to be used with stan
-	            ├── edward_prog.py					# Edward program
-                ├── pyro_prog.py					# Pyro prog
+            ├── output                                      # Contains all the program codes and outputs
+                ├── progsXXX                                # output for a single run of probfuzz
+                        ├── prob_rand_N                     # Nth program details
+                            ├── model.stan                  # Stan model code
+                            ├── driver.py                   # python code to run stan
+                            ├── data.json                   # Data to be used with stan
+                            ├── pplout_nuts_N               # Stan output
+                            ├── edward_prog.py              # Edward program
+                            ├── edwardout_N                 # Edward output
+                            ├── pyro_prog.py                # Pyro prog
+                            ├── pyro_out_N                  # Pyro output
+
             </pre>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            The output from each PPS has a specific format. For Stan, the
+            output format would look like the following, where "mean" is
+            expected value of the parameters and "lp__" is the
+            log_probability error:
+
+            <pre>
+
+            mean se_mean     sd   2.5%    25%    50%    75%  97.5%  n_eff   Rhat
+            w      5.14    0.04   0.81   3.67   4.58   5.11   5.66   6.81  448.0   1.01
+            b      0.34  1.2e-3   0.04   0.28   0.32   0.34   0.37   0.42  854.0    1.0
+            p      0.74  5.5e-3   0.12   0.53   0.66   0.74   0.82   0.98  451.0   1.01
+            lp__ -14.73    0.05   1.28 -18.09 -15.32  -14.4 -13.82 -13.32  615.0   1.01
+
+            </pre>
+            <br/>
+            For Edward, the output would look like the following, where each
+            row indicates the means of the parameters 'w', 'b' and 'p'.:
+
+            <pre>
+            ...
+            [9.882316]
+            [40768.516]
+            [27.659203]
+            </pre>
+            <br/>
+            Finally for Pyro, the output would look like the following, where *_v
+            is the variance and *_w is the mean of each parameter in the model.:
+
+            <pre>
+            ...
+            p_v : [8.048228]
+            p_w : [-3833.4492]
+            w_w : [-0.3105538]
+            w_v : [-7.687871]
+            b_v : [10.014385]
+            b_w : [0.94321126]
+            </pre>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            <div class="glink">
+                <a class="btn btn-primary"
+                   href="index.html"
+                   role="button">Go To Homepage</a>
+            </div>
         </div>
     </div>
 
 
 </div>
-<div class="glink">
-    <a class="btn btn-primary"
-       href="index.html"
-       role="button">Go To Homepage</a>
-</div>
+
 </body>
 </html>
