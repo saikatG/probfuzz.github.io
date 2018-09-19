@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial 3</title>
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/png"/>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/styles/styles.css">
+</head>
+<body>
+<div class="container-fullwidth mb-5 header">
+    <div class="row">
+        <div class="col-lg h1 text-center">
+            <b>ProbFuzz</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg h4 text-center">
+            A Framework For Testing Probabilistic Programming Systems
+        </div>
+    </div>
+
+</div>
+<div class="container row-padding">
+    <div class="row ">
+        <div class="col-lg h3 text-center">
+            Tutorial 3 : Understanding and Modifying ProbFuzz Config
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-lg">
+            ProbFuzz has a <code>config.json</code> file which controls what tools to run, which template to use and
+            what tool specific parameters to use.
+            We will explain the various parts next.
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg h5">
+            Global Configurations
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            <ul>
+                <li><code>max_threads</code>: No. of threads to use for running ProbFuzz. Default is 1</li>
+                <li><code>structured</code>: Flag to specify whether to use domain knowledge while populating the
+                    template. Otherwise, the programs might fail trivially. Default is True
+                </li>
+                <li><code>output_dir</code>: The directory for storing results. Default is "output"</li>
+                <li><code>current_template</code>: The template to use for fuzzing</li>
+                <li><code>runConfigurations</code>: The template to use for fuzzing</li>
+                <ul>
+                    <li><code>tool</code>: Name of the tool</li>
+                    <li><code>enabled</code>: Run the tool or disable. Default is True</li>
+                    <li><code>algorithm</code>: Use specific inference algorithm or <code>all</code></li>
+                    <li><code>timeout</code>: Maximum time to run each program in this tool. Default is 5 minutes</li>
+                    <li><code>python</code>: The python binary to use to run the tool. It can be the default system
+                        python or a virtual environment as well
+                    </li>
+                </ul>
+                <li><code>templates</code> Map of template names to their relative file locations</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            Tool specific configurations
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            <ul>
+                <li><code>edward</code></li>
+                <ul>
+                    <li><code>inferences</code>: It has the list of supported inferences and their specific parameters.
+                        This
+                        <b>should not be edited</b> except for the <code>ig</code> field which if true skips a
+                        particular
+                        inference
+                    </li>
+                </ul>
+                <li><code>pyro</code>
+
+                    <ul>
+                        <li><code>optimizers</code>: list of various optimizers and their respective parameters. Users
+                            can
+                            add some more optimizers from the pyro library if needed. Otherwise, this <b>should not be
+                                edited</b>.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            <div class="glink">
+                <a class="btn btn-primary"
+                   href="index.html"
+                   role="button">Go To Homepage</a>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+</div>
+
+
+</div>
+</body>
+</html>
