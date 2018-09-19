@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial 1</title>
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/png"/>
+    <title>ProbFuzz</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/styles/styles.css">
+</head>
+<body>
+<div class="container-fullwidth mb-5 header">
+    <div class="row">
+        <div class="col-lg h1 text-center">
+            <b>ProbFuzz</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg h4 text-center">
+            A Framework For Testing Probabilistic Programming Systems
+        </div>
+    </div>
+
+</div>
+<div class="container row-padding">
+    <div class="row ">
+        <div class="col-lg h3 text-center">
+            Tutorial 2 : Adding a custom template
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            All the templates needs to placed
+            in <code>$ROOT/language/template</code> and <code>config.json</code>
+            needs to be updated. The basic format of
+            the template is: <code> DATA+ PRIOR+ MODEL* QUERY+ </code>
+            <br/>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            <b>Data: </b> The user needs to specify concrete data values on
+            which the model needs to run
+            <pre>
+      x : [0, 1, 2, ... ]    </pre>
+
+            or, use a placeholder with type and size for ProbFuzz to fill in
+            random values:
+            <pre>
+      x : float[10]    </pre>
+
+            or specify a relation between other data items:
+            <pre>
+      x : float[10]
+      weight : float
+      bias : float
+      y: weight*x + bias </pre>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            <b>Prior:</b> The user needs to specify all the parameters of the
+            model and assign prior distributions to all of them. The user can
+            either specify a concrete distribution
+            <pre>
+      w := normal(0,1) </pre>
+            or, use a placeholder for the distribution or for its parameters:
+            <pre>
+      w := DIST(1,1)
+      w := normal(CONST, CONST) </pre>
+            or, let ProbFuzz choose some distribution
+            <pre>
+      w := DISTX
+    </pre>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            <b> Model: </b> ProbFuzz supports three kinds of statements as part
+            of the model:<br/>
+            Assignment:
+            <pre>
+      p = x + y</pre>
+            Observe:
+            <pre>
+      observe(Normal(w*x + b), y)</pre>
+            or,
+            Conditional:
+            <pre>
+      if (cond)
+      then
+      observe(DIST(w*x + b), y)
+      else
+      observe(DIST(0.5*x + b), y)
+      </pre>
+    Here, <code>w</code> and <code>b</code> are parameters and
+    <code>x</code> and <code>y</code> are data variables.
+    <br/>
+    Finally, we need to specify the parameters for which we want to
+    compute the posterior distributions:
+    <pre>
+      posterior(w)</pre>
+
+        <br/>
+     Putting all of them together we can get something like:
+<pre>
+    x : float[10]
+    weight : float
+    bias : float
+    y : weight*x + bias
+    w := DISTX
+    b := DISTX
+    p := DISTX
+    cond = bernoulli(CONST)
+    if (cond)
+    then
+    observe(DIST(w*x + b, p), y)
+    else
+    observe(DIST(5.0*x + b, p), y)
+
+    posterior(w)
+    posterior(b)
+    posterior(p)
+</pre>
+            This is the Linear Regression with Conditionals template in
+            ProbFuzz.
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            <div class="glink">
+                <a class="btn btn-primary"
+                   href="index.html"
+                   role="button">Go To Homepage</a>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+</div>
+</body>
+</html>
