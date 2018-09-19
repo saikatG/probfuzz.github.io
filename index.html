@@ -1,182 +1,309 @@
 <!doctype html>
 <html lang="en">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <head>
-	  <link rel="shortcut icon" href="assets/images/logo.png"  type="image/png"  />
-	  <title>ProbFuzz</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<meta charset="utf-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/png"/>
+    <title>ProbFuzz</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
     <link rel="stylesheet" href="assets/styles/styles.css">
-  </head>
-  <body>
-    <div class="container-fullwidth mb-5 header">
-      <div class="row">
-	<div class="col-lg h1 text-center">
-	  <b>ProbFuzz</b>
-	</div>
-      </div>
-      <div class="row">
-	<div class="col-lg h4 text-center">
-	  A Framework For Testing Probabilistic Programming Systems
-	</div>
-      </div>
-    
+</head>
+<body>
+<div class="container-fullwidth mb-5 header">
+    <div class="row">
+        <div class="col-lg h1 text-center">
+            <b>ProbFuzz</b>
+        </div>
     </div>
-    
-    <div class="container-fullwidth content">
-      <div class="row">
-		  <div class="col-sm-2"></div>
-	<div class="col-sm-2 m-2">
-	  <ul class="nav flex-column nav-pills nav-fill" >
-	    <!--<li class="nav-item">
-	      <a class="nav-link active" href="#pp" data-toggle="tab">Probabilistic Programming</a>
-	    </li>-->
-		  <li class="nav-item">
-			  <a class="nav-link active" href="#pr" data-toggle="tab"> Overview </a>
-		  </li>
-		  <li class="nav-item">
-	      <a class="nav-link" href="#db" data-toggle="tab"> Bug Database</a>
-	    </li>
-	    
-	    <li class="nav-item">
-	      <a class="nav-link" href="#pubs" data-toggle="tab">Publications</a>
-	    </li>
-
-	    <li class="nav-item">
-	      <a class="nav-link" href="#about" data-toggle="tab">About us</a>
-	    </li>
-
-	  </ul>
-	</div>
-
-	<div class="col-sm-6 m-2">
-	  
-	  <div class="tab-content">
-
-	    <div  class="tab-pane fade show active" id="pr">
-	      <div class="h4 pane-header">
-		What is ProbFuzz?
-	      </div>
-	      <div >
-		ProbFuzz is a novel approach and system for systematically testing
-		Probabilistic Programming Systems.   <br/>The inputs to ProbFuzz are:
-		<ol>
-		  <li> a general specification of the distributions that ProbFuzz supports,</li>
-		  <li> the number of programs to generate, and </li>
-		  <li> a template of a general probabilistic programming language.</li>
-		</ol>
-		
-		ProbFuzz outputs a set of programs that are likely bug-revealing
-		in the Probabilistic Programming Systems. ProbFuzz has three main components:
-		<ul>
-			<li><b>Generator</b> completes holes in a template to produce (1) a
-		probabilistic program in an intermediate language and (2) accompanying
-		data necessary to run probabilistic inference. Template completion is
-		a form of fuzzing: Generator produces many programs, with different
-		concrete distributions, distribution parameter values, and data
-		values. To generate programs that are more likely to identify
-		non-trivial bugs, Generator incorporates domain-specific information,
-		e.g., legal connections among distributions, ranges of their
-		parameters, and data properties.</li>
-		
-			<li> <b>Translator</b> converts the intermediate probabilistic program to a
-		specific API or language of a PP system under test, and selects
-		system-supported inference algorithms. We implemented three versions
-		of Translator, for Edward, Pyro, and Stan.</li>
-		
-			<li> <b>Program Checker</b> runs generated programs and determines whether
-		the outputs indicate likely bugs in the PP system on which the
-		programs were run. Program Checker produces a set of likely
-		bug-revealing programs for developers to inspect, and supports
-		checks for standard problems (like crashes or NaN errors in the
-		  output) and accuracy of inference results.</li>
-		</ul>
-		<div class="glink">
-		  <a target="_blank" class="btn btn-primary" href="https://github.com/uiuc-arc/probfuzz" role="button">View on Github</a>
-		  </div>
-	      </div>
-	    </div>
-
-	    <div  class="tab-pane fade" id="db">
-	      <div class="h4 pane-header">
-		Bug Database
-	      </div>
-	      <div>
-		We characterized the kinds of bugs that are common in existing
-		open-source systems. To the best of our knowledge, this is the first
-		systematic study of bugs in PP systems. We studied three systems:
-			  <a target="_blank" href="http://edwardlib.org/">Edward</a>,
-			  <a target="_blank" href="http://pyro.ai/">Pyro</a>, and
-			  <a target="_blank" href="http://mc-stan.org/">Stan</a>.  They are written in multiple programming
-		languages, are hosted on GitHub, have been adopted by both industry
-		and researchers, are actively developed, and implement many language
-		features and inference algorithms that are common to most PP
-		systems. In total, we categorized over 118 commits about bugs as
-		being PP systems-related. 
-	      </div>
-	      	<div class="glink">
-		  <a target="_blank" class="btn btn-primary" href="https://github.com/uiuc-arc/probfuzz-db" role="button">View on Github</a>
-		  </div>
-	    </div>
-
-	    <div  class="tab-pane fade" id="pubs">
-	      <div class="h4 pane-header">
-		Publications
-	      </div>
-	      <div>
-		<p><b>Testing Probabilistic Programming Systems</b><br>
-                  Saikat Dutta, Owolabi Legunsen, Zixin Huang, Sasa Misailovic<br>
-                  <i>26th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering</i><br>
-                  (<a href="https://conf.researchr.org/home/fse-2018" target="_blank" style="text-decoration: none;"><b><confname>ESEC/FSE 2018</confname></b></a>), Lake Buena Vista, FL, USA, November 2018. <br>
-                </p>
-	      </div>
-	    </div>
-	    
-	    <div  class="tab-pane fade" id="about">
-	      <div class="h4 pane-header">
-		Research Team
-	      </div>
-	      <div>
-		<ul>
-		  <li><p><b><a target="_blank" href="https://saikatdutta.me">Saikat Dutta </a></b> <br/>
-			PhD Student<br/> Department of Computer Science <br/>
-		      University of Illinois, Urbana-Champaign <br/>
-		      <a href="mailto:saikatd2@illinois.edu">saikatd2@illinois.edu</a>
-		    </p>		    
-		  </li>
-		   <li><p><b><a target="_blank" href="http://mir.cs.illinois.edu/legunsen/">Owolabi Legunsen</a></b> <br/>
-			PhD Student<br/> Department of Computer Science<br/>
-		       University of Illinois, Urbana-Champaign<br/>
-		       <a href="mailto:legunse2@illinois.edu">legunse2@illinois.edu</a>
-		    </p>		    
-		   </li>
-		    <li><p><b>Zixin Huang</b> <br/>
-			PhD Student<br/> Department of Computer Science <br/>
-			University of Illinois, Urbana-Champaign<br/>
-			<a href="mailto:zixinh2@illinois.edu">zixinh2@illinois.edu</a>
-		    </p>		    
-		    </li>
-		     <li><p><b><a target="_blank" href="http://misailo.web.engr.illinois.edu/">Sasa Misailovic</a></b> <br/>
-			Assistant Professor<br/> Department of Computer Science <br/>
-			 University of Illinois, Urbana-Champaign<br/>
-			 <a href="mailto:misailo@illinois.edu">misailo@illinois.edu</a>
-		    </p>		    
-		     </li>
-		     
-		</ul>
-		
-	      </div>	
-	    </div>
-	    
-	  </div>
-	</div>
-		  <!--<div class="col-sm-1"></div>-->
-      </div>
+    <div class="row">
+        <div class="col-lg h4 text-center">
+            A Framework For Testing Probabilistic Programming Systems
+        </div>
     </div>
 
+</div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>  
-  </body>
+<div class="container-fullwidth content">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2 m-2">
+            <ul class="nav flex-column nav-pills nav-fill">
+                <!--<li class="nav-item">
+                  <a class="nav-link active" href="#pp" data-toggle="tab">Probabilistic Programming</a>
+                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link active" href="#pr" data-toggle="tab">
+                        Overview </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#db" data-toggle="tab"> Bug
+                        Database</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#pubs" data-toggle="tab">Publications</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about" data-toggle="tab">About
+                        us</a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="col-sm-6 m-2">
+
+            <div class="tab-content">
+
+                <div class="tab-pane fade show active" id="pr">
+                    <div class="pane-header">
+                        <div class="h4">
+                            What is ProbFuzz?
+                        </div>
+                        <div>
+                            ProbFuzz is a novel approach and framework for
+                            systematically testing Probabilistic Programming
+                            Systems. Probabilistic Programming Systems automate
+                            various parts in bayesian inference tasks in
+                            machine learning, computer vision and statistics.
+                            Testing such systems is typically hard due to their
+                            probabilistic nature. ProbFuzz helps automate the
+                            process of finding bugs in Probabilistic Programming
+                            Systems. So far, ProbFuzz has found more than <b>60
+                            bugs</b> in popular
+                            Probabilistic Programming Languages.
+                        </div>
+                        <br/>
+                        <!--
+                        <div class="h4">
+                            How does ProbFuzz work?
+                        </div>
+                        <div>
+                            The inputs to
+                            ProbFuzz are:
+                            <ol>
+                                <li> a general specification of the
+                                    distributions
+                                    that ProbFuzz supports,
+                                </li>
+                                <li> the number of programs to generate, and
+                                </li>
+                                <li> a template of a general probabilistic
+                                    programming language.
+                                </li>
+                            </ol>
+
+                            ProbFuzz outputs a set of programs that are likely
+                            bug-revealing
+                            in the Probabilistic Programming Systems. ProbFuzz
+                            has
+                            three main components:
+                            <ul>
+                                <li><b>Generator</b> completes holes in a
+                                    template
+                                    to produce (1) a
+                                    probabilistic program in an intermediate
+                                    language and (2) accompanying
+                                    data necessary to run probabilistic
+                                    inference.
+                                    Template completion is
+                                    a form of fuzzing: Generator produces many
+                                    programs, with different
+                                    concrete distributions, distribution
+                                    parameter
+                                    values, and data
+                                    values. To generate programs that are more
+                                    likely to identify
+                                    non-trivial bugs, Generator incorporates
+                                    domain-specific information,
+                                    e.g., legal connections among distributions,
+                                    ranges of their
+                                    parameters, and data properties.
+                                </li>
+
+                                <li><b>Translator</b> converts the intermediate
+                                    probabilistic program to a
+                                    specific API or language of a PP system
+                                    under
+                                    test, and selects
+                                    system-supported inference algorithms. We
+                                    implemented three versions
+                                    of Translator, for Edward, Pyro, and Stan.
+                                </li>
+
+                                <li><b>Program Checker</b> runs generated
+                                    programs
+                                    and determines whether
+                                    the outputs indicate likely bugs in the PP
+                                    system on which the
+                                    programs were run. Program Checker produces
+                                    a
+                                    set of likely
+                                    bug-revealing programs for developers to
+                                    inspect, and supports
+                                    checks for standard problems (like crashes
+                                    or
+                                    NaN errors in the
+                                    output) and accuracy of inference results.
+                                </li>
+                            </ul>
+                        </div> -->
+                        <div class="h4">
+                            Try ProbFuzz
+                        </div>
+                        <div>
+                            ProbFuzz is currently implemented in Python and
+                            works for three Probabilistic Programming
+                            Languages. It is available for download and is
+                            distributed under MIT License.
+                            <div class="glink">
+                                <a target="_blank" class="btn btn-primary"
+                                   href="https://github.com/uiuc-arc/probfuzz"
+                                   role="button">View on Github</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="tab-pane fade" id="db">
+                        <div class="h4 pane-header">
+                            Bug Database
+                        </div>
+                        <div>
+                            We characterized the kinds of bugs that are common
+                            in
+                            existing
+                            open-source systems. To the best of our knowledge,
+                            this
+                            is the first
+                            systematic study of bugs in PP systems. We studied
+                            three
+                            systems:
+                            <a target="_blank"
+                               href="http://edwardlib.org/">Edward</a>,
+                            <a target="_blank" href="http://pyro.ai/">Pyro</a>,
+                            and
+                            <a target="_blank"
+                               href="http://mc-stan.org/">Stan</a>.
+                            They are written in multiple programming
+                            languages, are hosted on GitHub, have been adopted
+                            by
+                            both industry
+                            and researchers, are actively developed, and
+                            implement
+                            many language
+                            features and inference algorithms that are common to
+                            most PP
+                            systems. In total, we categorized over 118 commits
+                            about
+                            bugs as
+                            being PP systems-related.
+                        </div>
+                        <div class="glink">
+                            <a target="_blank" class="btn btn-primary"
+                               href="https://github.com/uiuc-arc/probfuzz-db"
+                               role="button">View on Github</a>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pubs">
+                        <div class="h4 pane-header">
+                            Publications
+                        </div>
+                        <div>
+                            <p><b>Testing Probabilistic Programming
+                                Systems</b><br>
+                                Saikat Dutta, Owolabi Legunsen, Zixin Huang,
+                                Sasa
+                                Misailovic<br>
+                                <i>26th ACM Joint European Software Engineering
+                                    Conference and Symposium on the Foundations
+                                    of
+                                    Software Engineering</i><br>
+                                (<a href="https://conf.researchr.org/home/fse-2018"
+                                    target="_blank"
+                                    style="text-decoration: none;"><b>
+                                    <confname>ESEC/FSE 2018</confname>
+                                </b></a>), Lake Buena Vista, FL, USA, November
+                                2018.
+                                <br>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="about">
+                        <div class="h4 pane-header">
+                            Research Team
+                        </div>
+                        <div>
+                            <ul>
+                                <li><p><b><a target="_blank"
+                                             href="https://saikatdutta.me">Saikat
+                                    Dutta </a></b> <br/>
+                                    PhD Student<br/> Department of Computer
+                                    Science
+                                    <br/>
+                                    University of Illinois, Urbana-Champaign
+                                    <br/>
+                                    <a href="mailto:saikatd2@illinois.edu">saikatd2@illinois.edu</a>
+                                </p>
+                                </li>
+                                <li><p><b><a target="_blank"
+                                             href="http://mir.cs.illinois.edu/legunsen/">Owolabi
+                                    Legunsen</a></b> <br/>
+                                    PhD Student<br/> Department of Computer
+                                    Science<br/>
+                                    University of Illinois,
+                                    Urbana-Champaign<br/>
+                                    <a href="mailto:legunse2@illinois.edu">legunse2@illinois.edu</a>
+                                </p>
+                                </li>
+                                <li><p><b>Zixin Huang</b> <br/>
+                                    PhD Student<br/> Department of Computer
+                                    Science
+                                    <br/>
+                                    University of Illinois,
+                                    Urbana-Champaign<br/>
+                                    <a href="mailto:zixinh2@illinois.edu">zixinh2@illinois.edu</a>
+                                </p>
+                                </li>
+                                <li><p><b><a target="_blank"
+                                             href="http://misailo.web.engr.illinois.edu/">Sasa
+                                    Misailovic</a></b> <br/>
+                                    Assistant Professor<br/> Department of
+                                    Computer
+                                    Science <br/>
+                                    University of Illinois,
+                                    Urbana-Champaign<br/>
+                                    <a href="mailto:misailo@illinois.edu">misailo@illinois.edu</a>
+                                </p>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--<div class="col-sm-1"></div>-->
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+</body>
 </html>

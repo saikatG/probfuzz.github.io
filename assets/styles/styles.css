@@ -9,9 +9,15 @@
 }
 
 .content{
+    font-size: 1.1rem;
     /*padding: 2em 15em;*/
 }
 
+
 .glink{
     padding-top: 2em;
+}
+
+.row{
+    margin-right: 0px;
 }
