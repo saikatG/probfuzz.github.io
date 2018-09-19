@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial 1</title>
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/png"/>
+    <title>ProbFuzz</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/styles/styles.css">
+</head>
+<body>
+<div class="container-fullwidth mb-5 header">
+    <div class="row">
+        <div class="col-lg h1 text-center">
+            <b>ProbFuzz</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg h4 text-center">
+            A Framework For Testing Probabilistic Programming Systems
+        </div>
+    </div>
+
+</div>
+<div class="container row-padding">
+    <div class="row ">
+        <div class="col-lg h3 text-center">
+        Tutorial 1 : Installing and Running ProbFuzz
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            Install Probfuzz
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            <pre>cd $PROBFUZZ_DIRECTORY; sudo ./install.sh</pre>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            It should print <code>Install successful</code>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            Run ProbFuzz
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            <pre>./probfuzz.py [#programs]</pre>
+            <br/>
+            Check output in <code>output</code> folder.
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg h4">
+            <b> Output details</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            ProbFuzz will generate and run <code> #programs </code> programs in all 3 Probabilistic Programming Languages (Edward, Pyro and Stan) by default. The structure of the output directory is as follows:
+            <pre>
+                	.
+	├── output					# Contains all the program codes and outputs
+	    ├── progsXXXX					# output for a single run of probfuzz
+	        ├── prob_rand_N					# Nth program details
+	            ├── model.stan					# Stan model code
+	            ├── driver.py					# python code to run stan
+	            ├── data.json					# Data to be used with stan
+	            ├── edward_prog.py					# Edward program
+                ├── pyro_prog.py					# Pyro prog
+            </pre>
+        </div>
+    </div>
+
+
+</div>
+<div class="glink">
+    <a class="btn btn-primary"
+       href="index.html"
+       role="button">Go To Homepage</a>
+</div>
+</body>
+</html>
