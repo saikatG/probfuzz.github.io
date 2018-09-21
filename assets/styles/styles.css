@@ -47,3 +47,8 @@ code{
     max-width: 180px;
     max-height: 150px;
 }
+
+.flip{
+    transform : scaleX(-1);
+    -webkit-transform: scaleX(-1);
+}
